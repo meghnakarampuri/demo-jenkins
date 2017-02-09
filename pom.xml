@@ -84,7 +84,7 @@
 					<username>meghna_karampuri</username>
 					<password>Skyline@1982</password>
 					<redeploy>true</redeploy>
-					<environment>Production</environment>
+					<environment>TEST</environment>
 				</configuration>
 				<executions>
 					<execution>
