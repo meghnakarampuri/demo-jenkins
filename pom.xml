@@ -8,13 +8,14 @@
     <version>1.0.0-SNAPSHOT</version>
     <packaging>mule</packaging>
 	<name>Mule testcloud Application</name>
-
+	
     <properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<mule.version>3.8.0</mule.version>
     	<mule.tools.version>1.2</mule.tools.version>
+    	<cloudhub.domain>https://anypoint.mulesoft.com/login/#/signup?apintent=cloudhub</cloudhub.domain>
 	</properties>
 
 	<build>
@@ -58,6 +59,40 @@
 								</resource>
 							</resources>
 						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+				<!-- added for deployment -->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<configuration>
+					<skip>true</skip>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<deploymentType>cloudhub</deploymentType>
+
+					<muleVersion>3.8.0</muleVersion>
+					<username>meghna_karampuri</username>
+					<password>Skyline@1982</password>
+					<redeploy>true</redeploy>
+					<environment>Production</environment>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
 					</execution>
 				</executions>
 			</plugin>
